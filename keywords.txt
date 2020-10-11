@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map rString
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LightDependentResistor	KEYWORD1	LightDependentResistor
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+Setup	KEYWORD2
+SetPin	KEYWORD2
+GetPin	KEYWORD2
+GetValue	KEYWORD2
+Read	KEYWORD2
+ValueChanged	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
