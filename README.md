@@ -47,10 +47,10 @@ Luego podra seleccionar la última versión siguiendo los pasos de Selección de
 La libreria incluye una clase LightDependentResistor instanciable. LightDependentResistor se configura con dos parametros, uno para indicar el pin que esta conectado al LDR y será usado para leer el estado, y otro parametro opcional que recibira un callback que será invocado cuando se detecte que ocurrió un cambio en el estado del pin desde la ultima vez que se corroboró la lectura.
 
 ``` c++
-LightDependentResistor ldr(pin, ChangeEvent);
+LightDependentResistor ldr(pin, onChanged);
 ```
 
-Para verificar el estado del LDR se debe recurrir al metodo Read. Si durante la lectura, se detecta que el estado ha cambiado desde la ultima vez que se ejecuto Read(), entonces se tratará de invocar al callback asociado al evento OnChanged.
+Para verificar el estado del LDR se debe recurrir al metodo Read. Si durante la lectura, se detecta que el estado ha cambiado desde la ultima vez que se ejecuto Read(), entonces se tratará de invocar al callback asociado al evento ValueChanged.
 
 ``` c++
 int value = ldr.Read();
