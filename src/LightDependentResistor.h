@@ -16,7 +16,7 @@ class LightDependentResistor{
         /**
         * @brief Evento que se dispara cuando se detecta un cambio de estado luego de ejecutar Read()
         * */
-        EventHandler<bool> Changed;
+        EventHandler<bool> ValueChanged;
 
         /**
         * @brief Instancia e inicializa el objeto sin valores configurados
@@ -28,13 +28,13 @@ class LightDependentResistor{
         * */
         LightDependentResistor(uint8_t pin);
         /**
-        * @brief Instancia e inicializa el objeto con un pin y un callback asociado al evento Changed
+        * @brief Instancia e inicializa el objeto con un pin y un callback asociado al evento ValueChanged
         * @param uint8_t Pin al que esta conectado el sensor LDR
-        * @param void (*onChanged)(bool) Callback que se invocara cuando se detecte un cambio de estado durante la ejecución de Read()
+        * @param void (*onValueChanged)(bool) Callback que se invocara cuando se detecte un cambio de estado durante la ejecución de Read()
         * */
-        LightDependentResistor(uint8_t pin, void (*onChanged)(bool));
+        LightDependentResistor(uint8_t pin, void (*onValueChanged)(bool));
         /**
-        * @brief Destruye toda referencia al evento Changed
+        * @brief Destruye toda referencia al evento ValueChanged
         * */
         ~LightDependentResistor();
 
@@ -48,11 +48,11 @@ class LightDependentResistor{
         * */
         void Setup(uint8_t pin);
         /**
-        * @brief Inicializa el objeto con un pin y un callback asociado al evento Changed
+        * @brief Inicializa el objeto con un pin y un callback asociado al evento ValueChanged
         * @param uint8_t Pin al que esta conectado el sensor LDR
-        * @param void (*onChanged)(bool) Callback que se invocara cuando se detecte un cambio de estado durante la ejecución de Read()
+        * @param void (*onValueChanged)(bool) Callback que se invocara cuando se detecte un cambio de estado durante la ejecución de Read()
         * */
-        void Setup(uint8_t pin, void (*onChanged)(bool));
+        void Setup(uint8_t pin, void (*onValueChanged)(bool));
 
         /**
         * @brief Cambia el pin de lectura
@@ -70,7 +70,7 @@ class LightDependentResistor{
         bool GetValue();
 
         /**
-        * @brief Lee y devuelve el estado actual del LDR, si hubo un cambio dispara el evento Changed
+        * @brief Lee y devuelve el estado actual del LDR, si hubo un cambio dispara el evento ValueChanged
         * */
         bool Read();
 };

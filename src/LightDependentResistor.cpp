@@ -8,17 +8,17 @@ LightDependentResistor::LightDependentResistor(uint8_t pin){
     Setup(pin);
 }
 
-LightDependentResistor::LightDependentResistor(uint8_t pin, void (*onChanged)(bool)){
-    Setup(pin, onChanged);
+LightDependentResistor::LightDependentResistor(uint8_t pin, void (*onValueChanged)(bool)){
+    Setup(pin, onValueChanged);
 }
 
 LightDependentResistor::~LightDependentResistor(){
-    Changed.Clear();
+    ValueChanged.Clear();
 }
 
 void LightDependentResistor::Setup(){
     SetPin(0);
-    Changed.Clear();
+    ValueChanged.Clear();
     _value = false;
 }
 
@@ -27,10 +27,10 @@ void LightDependentResistor::Setup(uint8_t pin){
     SetPin(pin);
 }
 
-void LightDependentResistor::Setup(uint8_t pin, void (*onChanged)(bool)){
+void LightDependentResistor::Setup(uint8_t pin, void (*onValueChanged)(bool)){
     Setup();
     SetPin(pin);
-    Changed.Add(onChanged);
+    ValueChanged.Add(onValueChanged);
 }
 
 void LightDependentResistor::SetPin(uint8_t pin){
@@ -49,7 +49,7 @@ bool LightDependentResistor::Read(){
     bool current = digitalRead(_pin)==HIGH? false: true;
     if( current != _value ){
         _value = current;
-        Changed.Invoke(current);
+        ValueChanged.Invoke(current);
     }
     return current;
 }
