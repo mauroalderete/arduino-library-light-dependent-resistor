@@ -35,6 +35,7 @@ void LightDependentResistor::Setup(uint8_t pin, void (*onValueChanged)(bool)){
 
 void LightDependentResistor::SetPin(uint8_t pin){
     _pin = pin;
+    pinMode(_pin, INPUT);
 }
 
 uint8_t LightDependentResistor::GetPin(){
