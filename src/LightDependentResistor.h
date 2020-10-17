@@ -8,7 +8,7 @@
 * @brief Simplifica la interacción con un sensor LDR en modo ditigal
 * */
 class LightDependentResistor{
-    private:
+    protected:
         uint8_t _pin;
         bool _value;
 
